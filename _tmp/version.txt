@@ -1,8 +1,8 @@
 {
-   "ReleaseDate": "1990-05-20T10:00:00.000Z",
-   "MD5_Hash": "aa1458af7c0e9bac005a28edc4507e60",
+   "ReleaseDate": "1990-02-01T12:30:00.000Z",
+   "MD5_Hash": "AF05BC0513C725CE68EC3B9992163E55",
    "Major_Version": "4",
    "Minor_Version": "1",
    "Build_Number": "1337",
-   "File_Name": "com.javiis.jatime.apk"
+   "File_Name": "testfile.txt"
 }

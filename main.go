@@ -97,7 +97,7 @@ func md5sum(filePath string) (result string, err error) {
 		return
 	}
 
-	result = hex.EncodeToString(hash.Sum(nil))
+	result = strings.ToUpper(hex.EncodeToString(hash.Sum(nil)))
 	return
 }
 
