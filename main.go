@@ -113,6 +113,11 @@ func main() {
 		fmt.Print("Enter Release date (DD.MM.YYYY hh:mm) :")
 		text, _ := reader.ReadString('\n')
 
+		if text == "\n" {
+			configs.ReleaseDate = time.Now().Format("2006-01-02T15:04:05.00Z")
+			break
+		}
+
 		date, error := time.Parse("02.01.2006 15:04\n", text)
 
 		if error != nil {
@@ -141,6 +146,7 @@ func main() {
 
 	if error != nil {
 		log.Fatalf("Error in md5 hashing: %s\n", error.Error())
+
 	}
 
 	fmt.Printf("Major Version: %s\n", toSerialize.Major_Version)
