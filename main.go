@@ -115,13 +115,13 @@ func main() {
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Enter Release date (DD.MM.YYYY hh:mm) :")
 
-		text := "\n"
 		if configs.SkipReleaseDate == "false" {
 			text, _ := reader.ReadString('\n')
-		}
-
-		if text == "\n" {
-			configs.ReleaseDate = time.Now().Format("2006-01-02T15:04:05.00Z")
+			if text == "\n" {
+				configs.ReleaseDate = time.Now().Format("2006-01-02T15:04:05.00Z")
+				break
+			}
+		} else {
 			break
 		}
 
