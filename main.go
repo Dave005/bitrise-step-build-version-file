@@ -121,18 +121,20 @@ func main() {
 				configs.ReleaseDate = time.Now().Format("2006-01-02T15:04:05.00Z")
 				break
 			}
+
+			date, error := time.Parse("02.01.2006 15:04\n", text)
+
+			if error != nil {
+				log.Printf("wrong date input: %s\n", error.Error())
+			} else {
+				configs.ReleaseDate = date.Format("2006-01-02T15:04:05.000Z")
+				break
+			}
+
 		} else {
 			break
 		}
 
-		date, error := time.Parse("02.01.2006 15:04\n", text)
-
-		if error != nil {
-			log.Printf("wrong date input: %s\n", error.Error())
-		} else {
-			configs.ReleaseDate = date.Format("2006-01-02T15:04:05.000Z")
-			break
-		}
 	}
 
 	var toSerialize Message
