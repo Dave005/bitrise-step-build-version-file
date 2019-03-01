@@ -35,7 +35,7 @@ type ConfigsModel struct {
 	FileName        string
 	FilePath        string
 	DestinationPath string
-    SkipReleaseDate string
+	SkipReleaseDate string
 }
 
 func createConfigsModelFromEnvs() ConfigsModel {
@@ -45,7 +45,7 @@ func createConfigsModelFromEnvs() ConfigsModel {
 		BuildNumber:     os.Getenv("build_number"),
 		FilePath:        os.Getenv("file_path"),
 		DestinationPath: os.Getenv("destination_path"),
-        SkipReleaseDate: os.Getenv("skip_release_date")
+		SkipReleaseDate: os.Getenv("skip_release_date"),
 	}
 	ret.FileName = filepath.Base(ret.FilePath)
 
@@ -59,7 +59,7 @@ func (configs ConfigsModel) print() {
 	log.Printf(" - Build Number: %s \n", configs.BuildNumber)
 	log.Printf(" - file path: %s \n", configs.FilePath)
 	log.Printf(" - Filename: %s \n", configs.FileName)
-    log.Printf(" - Skip Release date: %s \n", configs.SkipReleaseDate)
+	log.Printf(" - Skip Release date: %s \n", configs.SkipReleaseDate)
 }
 
 func (configs ConfigsModel) validate() error {
@@ -114,11 +114,11 @@ func main() {
 	for {
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Enter Release date (DD.MM.YYYY hh:mm) :")
-        
-        text := "\n"
-        if configs.SkipReleaseDate == "false" {
-		    text, _ := reader.ReadString('\n')
-        }
+
+		text := "\n"
+		if configs.SkipReleaseDate == "false" {
+			text, _ := reader.ReadString('\n')
+		}
 
 		if text == "\n" {
 			configs.ReleaseDate = time.Now().Format("2006-01-02T15:04:05.00Z")
